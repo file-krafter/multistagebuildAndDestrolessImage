@@ -28,8 +28,8 @@ WORKDIR /app
 EXPOSE 8080
 
 # Copy only the fat jar from builder stage
-COPY --from=builder /app/target/*.jar app.jar
+COPY --from=builder /app/target/*.war app.war
 
 # Run the app
-CMD ["app.jar"]
+ENTRYPOINT ["java", "-jar", "app.war"]
 
